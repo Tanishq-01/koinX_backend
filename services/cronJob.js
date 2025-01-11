@@ -12,16 +12,8 @@ const fetchData = async () => {try{
       });
       
     const urlWithParams = `${url}?${params.toString()}`;
-      
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          'x-cg-demo-api-key': 'CG-xQkujUG56TAMPiZHUTsXH2nD' 
-        }
-      }
 
-    const response = await fetch(urlWithParams, options)
+    const response = await fetch(urlWithParams)
     const data = await response.json()
 
     for(let i=0;i<3;i++){

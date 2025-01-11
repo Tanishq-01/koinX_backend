@@ -1,9 +1,8 @@
 const mongoose = require('mongoose')
 
-let uri = `mongodb+srv://02tanishq:${process.env.password}@cluster0.scppb.mongodb.net`
 const connectDB = async () => {
     try{
-        await mongoose.connect(uri)
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log('Connected to MongoDB successfully')
     }
     catch(err){
