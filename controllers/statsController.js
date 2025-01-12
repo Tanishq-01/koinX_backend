@@ -1,8 +1,6 @@
 const CryptoData = require('../models/crypto');
 const latestData = async (req,res) => {
    const {coin} = req.query
-   if(!coin) return res.status(400).json({message: 'Error : Coin Name is required'})
-   if(coin !== 'bitcoin' && coin !== 'ethereum' && coin !== 'matic-network') return res.status(400).json({message: 'Error : Invalid Coin Name'})
    try{
     const latestData = await CryptoData.find({ coin: coin })
     .sort({ timestamp: -1 })
@@ -23,8 +21,6 @@ const latestData = async (req,res) => {
 
 const deviation = async (req,res) => {
    const {coin} = req.query
-   if(!coin) return res.status(400).json({message: 'Error : Coin Name is required'})
-   if(coin !== 'bitcoin' && coin !== 'ethereum' && coin !== 'matic-network') return res.status(400).json({message: 'Error : Invalid Coin Name'})
     try{
         const records = await CryptoData.find({ coin: coin })
         .sort({ timestamp: -1 })
